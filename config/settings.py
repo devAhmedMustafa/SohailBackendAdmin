@@ -10,10 +10,9 @@ SECRET_KEY = 'django-insecure-4su^fhx_wrvw8*f^!m9h__w6lv=y1--@r*h%g5+l#%6^$6@-c@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sohailmohamed.render.com', 'http://localhost']
-CORS_ORIGIN_ALLOW_ALL = True
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(" ")
 CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', 'http://localhost').split(" ")
-
+CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost').split(" ")
 # Application definition
 
 INSTALLED_APPS = [
